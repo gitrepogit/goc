@@ -1,0 +1,9 @@
+<h3>Top Grandmasters</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let goc of gocs"  [routerLink]="['/details', goc.id]"  class="col-1-4">
+    <div class="module goc">
+      <h4>{{goc.name}}</h4>
+    </div>
+  </a>
+</div>
+<goc-search></goc-search>

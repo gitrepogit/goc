@@ -1,0 +1,22 @@
+<h2>Grandmasters</h2>
+<div>
+  <label>Name:</label> <input #gocName />
+  <button (click)="add(gocName.value); gocName.value=''">
+    Add
+  </button>
+</div>
+<ul class="gocs">
+  <li *ngFor="let goc of gocs" (click)="onSelect(goc)"
+      [class.selected]="goc === selectedGoc">
+    <span class="badge">{{goc.id}}</span>
+    <span>{{goc.name}}</span>
+    <button class="delete"
+      (click)="delete(goc); $event.stopPropagation()">x</button>
+  </li>
+</ul>
+<div *ngIf="selectedGoc">
+  <h2>
+    {{selectedGoc.name | uppercase}} [ {{selectedGoc.rating}} ]
+  </h2>
+  <button (click)="gotoDetails()">View Details</button>
+</div>
