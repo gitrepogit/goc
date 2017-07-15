@@ -23,10 +23,13 @@ export class GocsComponent implements OnInit {
         .then(gocs => this.gocs = gocs);
   }
 
-  add(name: string): void {
+  add(name: string, rating: string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.gocService.create(name)
+    rating = rating.trim();
+    if(!rating) { return; }
+    var ratingN = Number(rating);
+    if (!name || !rating || isNaN(ratingN)) { return; }
+    this.gocService.create(name, ratingN)
       .then(goc => {
         this.gocs.push(goc);
         this.selectedGoc = null;

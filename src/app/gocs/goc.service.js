@@ -38,9 +38,9 @@ var GocService = (function () {
             .then(function () { return null; })
             .catch(this.handleError);
     };
-    GocService.prototype.create = function (name) {
+    GocService.prototype.create = function (name, rating) {
         return this.http
-            .post(this.gocsUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .post(this.gocsUrl, JSON.stringify({ name: name, rating: rating }), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);

@@ -1,24 +1,34 @@
 <div id="content">
-  <h2>Grandmasters</h2>
-  <div>
-    <label>Name:</label> <input #gocName />
-    <button (click)="add(gocName.value); gocName.value=''">
-      Add
-    </button>
+  <div id="gocs-leftcol">
+    <ul class="gocs">
+      <li *ngFor="let goc of gocs" (click)="onSelect(goc)"
+          [class.selected]="goc === selectedGoc">
+        <span class="badge">{{goc.id}}</span>
+        <span>{{goc.name}}</span>
+        <button class="delete"
+          (click)="delete(goc); $event.stopPropagation()">x</button>
+      </li>
+    </ul>
   </div>
-  <ul class="gocs">
-    <li *ngFor="let goc of gocs" (click)="onSelect(goc)"
-        [class.selected]="goc === selectedGoc">
-      <span class="badge">{{goc.id}}</span>
-      <span>{{goc.name}}</span>
-      <button class="delete"
-        (click)="delete(goc); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-  <div *ngIf="selectedGoc">
-    <h2>
-      {{selectedGoc.name | uppercase}} [ {{selectedGoc.rating}} ]
-    </h2>
-    <button (click)="gotoDetails()">View Details</button>
+
+  <div id="gocs-rightcol">
+    <div *ngIf="selectedGoc" id="gocs-right-goc-disp">
+      <h2>
+        {{selectedGoc.name | uppercase}} [ {{selectedGoc.rating}} ]
+      </h2>
+      <button (click)="gotoDetails()">View Details</button>
+    </div>
+
+    <div id="add-goc">
+      <h2>Add Grandmaster</h2>
+      <div class="form-row"><label class="form-label">Name:</label> <input #gocName /></div>
+      <div class="form-row"><label class="form-label">Rating:</label> <input #gocRating /></div>
+      <button (click)="add(gocName.value, gocRating.value); gocName.value=''; gocRating.value=''">
+        Save
+      </button>
+    </div>
   </div>
+
+  <div class="clear"></div>
+
 </div>

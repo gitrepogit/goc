@@ -98,7 +98,11 @@ nav a.active {
   margin: 1em;
 }
 
+.clear {
+  clear:both;
+}
+
 #dummy {
    outline: 1px solid red;
    background-color: green;
-  }
+}

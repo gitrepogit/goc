@@ -23,13 +23,18 @@ var GocsComponent = (function () {
             .getGocs()
             .then(function (gocs) { return _this.gocs = gocs; });
     };
-    GocsComponent.prototype.add = function (name) {
+    GocsComponent.prototype.add = function (name, rating) {
         var _this = this;
         name = name.trim();
-        if (!name) {
+        rating = rating.trim();
+        if (!rating) {
             return;
         }
-        this.gocService.create(name)
+        var ratingN = Number(rating);
+        if (!name || !rating || isNaN(ratingN)) {
+            return;
+        }
+        this.gocService.create(name, ratingN)
             .then(function (goc) {
             _this.gocs.push(goc);
             _this.selectedGoc = null;

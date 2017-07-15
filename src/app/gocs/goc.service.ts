@@ -37,9 +37,9 @@ export class GocService {
       .catch(this.handleError);
   }
 
-  create(name: string): Promise<Goc> {
+  create(name: string, rating:number): Promise<Goc> {
     return this.http
-      .post(this.gocsUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.gocsUrl, JSON.stringify({name: name, rating: rating}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Goc)
       .catch(this.handleError);

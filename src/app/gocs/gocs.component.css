@@ -64,3 +64,40 @@ button.delete {
   background-color: gray !important;
   color:white;
 }
+
+#gocs-leftcol {
+  float:left;
+}
+
+#gocs-rightcol {
+  float:left;
+  margin: 0 1em;
+}
+
+#add-goc {
+  border: 1px solid #000;
+  margin-top: 0.7em;
+  padding: 0.5em;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#add-goc h2 {
+  padding-top: 0;
+  margin-top: 5px;
+}
+
+#gocs-right-goc-disp {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-row {
+  margin-bottom: 0.5em;
+}
+
+.form-label {
+  width: 3.5em;
+  display:inline-block;
+}
