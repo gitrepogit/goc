@@ -19,6 +19,7 @@ var DetailsComponent = (function () {
         this.gocService = gocService;
         this.route = route;
         this.location = location;
+        this.placeHolder = '/assets/app-images/no-image.jpg';
     }
     DetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -33,6 +34,11 @@ var DetailsComponent = (function () {
     };
     DetailsComponent.prototype.goBack = function () {
         this.location.back();
+    };
+    DetailsComponent.prototype.noImage = function () {
+        if (this.goc.image !== this.placeHolder) {
+            this.goc.image = this.placeHolder;
+        }
     };
     return DetailsComponent;
 }());

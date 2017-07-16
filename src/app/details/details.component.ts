@@ -14,6 +14,7 @@ import { GocService }               from '../gocs/goc.service';
 })
 export class DetailsComponent implements OnInit {
   goc: Goc;
+  private placeHolder: string = '/assets/app-images/no-image.jpg';
 
   constructor(
     private gocService: GocService,
@@ -35,4 +36,11 @@ export class DetailsComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  noImage(): void {
+    if(this.goc.image !== this.placeHolder) {
+      this.goc.image = this.placeHolder;
+    }
+  }
+
 }

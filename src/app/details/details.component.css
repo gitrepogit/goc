@@ -27,3 +27,21 @@ button:disabled {
   color: #ccc; 
   cursor: auto;
 }
+
+#goc-detail-image {
+  float: left;
+}
+
+#goc-detail-info {
+  float: left;
+  padding-left: 1em;
+}
+
+#goc-detail-info label{
+  display: inline-block;
+  width: 3.9em;
+}
+
+#goc-detail-info div {
+  margin-bottom: 0.5em;
+}
