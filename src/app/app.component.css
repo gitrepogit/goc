@@ -11,6 +11,7 @@ h2 {
 
 nav {
   margin: 0 1em;
+  float:left;
 }
 
 nav a {

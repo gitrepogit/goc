@@ -45,6 +45,12 @@ var SearchComponent = (function () {
         });
     };
     SearchComponent.prototype.gotoDetail = function (goc) {
+        //clean up search results
+        var sr = document.getElementsByClassName('search-result');
+        while (sr[0]) {
+            sr[0].parentNode.removeChild(sr[0]);
+        }
+        document.getElementById('search-box').value = '';
         var link = ['/details', goc.id];
         this.router.navigate(link);
     };

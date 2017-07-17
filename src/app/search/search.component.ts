@@ -51,6 +51,13 @@ export class SearchComponent implements OnInit {
   }
 
   gotoDetail(goc: Goc): void {
+    //clean up search results
+    var sr = document.getElementsByClassName('search-result');
+    while(sr[0]) {
+        sr[0].parentNode.removeChild(sr[0]);
+    }​
+    document.getElementById('search-box').value = '';
+
     let link = ['/details', goc.id];
     this.router.navigate(link);
   }
