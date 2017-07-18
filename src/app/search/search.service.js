@@ -19,7 +19,7 @@ var SearchService = (function () {
     SearchService.prototype.search = function (term) {
         return this.http
             .get("api/gocs/?name=" + term)
-            .map(function (response) { return response.json().data; });
+            .map(function (response) { return response.json().data; }); //Interpret search results as json and extract data as a Goc array
     };
     return SearchService;
 }());

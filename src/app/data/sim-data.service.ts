@@ -1,4 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+
+// this class is used to simulate an Http API
 export class SimDataService implements InMemoryDbService {
   createDb() {
     const gocs = [

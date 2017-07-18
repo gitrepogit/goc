@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// this class is used to simulate an Http API
 var SimDataService = (function () {
     function SimDataService() {
     }

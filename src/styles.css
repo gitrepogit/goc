@@ -1,4 +1,4 @@
-/* Core Styles */
+/* Main Styles */
 h1 {
   color: #369;
   font-family: Helvetica, Arial, sans-serif;
@@ -61,12 +61,13 @@ nav a.active {
   color: #039be5;
 }
 
-/* everywhere else */
+/* App wide fonts for other elements */
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 
+/* outer wrapper for the app to keep everything in the center fo the page */
 #app-container {
   background-color: #fff;
   margin: 0 auto;
@@ -78,6 +79,7 @@ nav a.active {
   border-radius: 7px;
   box-shadow: 0 0 8px #aaa
 }
+
 
 #header {
   background-color: #10abe1;
@@ -94,6 +96,7 @@ nav a.active {
   border-radius: 7px;
 }
 
+/* area below header and navigation, where content from different components are featured */
 #content {
   margin: 1em;
 }

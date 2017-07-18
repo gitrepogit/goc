@@ -14,11 +14,13 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var goc_service_1 = require("../gocs/goc.service");
+// This component is created to create the details view for the selected grandmaster
 var DetailsComponent = (function () {
     function DetailsComponent(gocService, route, location) {
         this.gocService = gocService;
         this.route = route;
         this.location = location;
+        // The URL of the image which is displayed if a picture of the grandmaster is not available
         this.placeHolder = '/assets/app-images/no-image.jpg';
     }
     DetailsComponent.prototype.ngOnInit = function () {
@@ -27,14 +29,17 @@ var DetailsComponent = (function () {
             .switchMap(function (params) { return _this.gocService.getGoc(+params.get('id')); })
             .subscribe(function (goc) { return _this.goc = goc; });
     };
+    // Update the record of the currently displayed grandmaster
     DetailsComponent.prototype.save = function () {
         var _this = this;
         this.gocService.update(this.goc)
             .then(function () { return _this.goBack(); });
     };
+    // Go back to the previous view
     DetailsComponent.prototype.goBack = function () {
         this.location.back();
     };
+    // display a placeholder image if the picture of the selected grandamster is not available
     DetailsComponent.prototype.noImage = function () {
         if (this.goc.image !== this.placeHolder) {
             this.goc.image = this.placeHolder;

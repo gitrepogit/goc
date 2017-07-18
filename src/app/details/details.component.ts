@@ -7,14 +7,18 @@ import { Location }                 from '@angular/common';
 import { Goc }                      from '../gocs/goc';
 import { GocService }               from '../gocs/goc.service';
 
+// This component is created to create the details view for the selected grandmaster
 @Component({
   selector: 'goc-details',
   templateUrl: './details.component.html',
   styleUrls: [ './details.component.css' ]
 })
+
 export class DetailsComponent implements OnInit {
   goc: Goc;
-  private placeHolder: string = '/assets/app-images/no-image.jpg';
+
+  // The URL of the image which is displayed if a picture of the grandmaster is not available
+  private placeHolder: string = '/assets/app-images/no-image.jpg'; 
 
   constructor(
     private gocService: GocService,
@@ -28,15 +32,18 @@ export class DetailsComponent implements OnInit {
       .subscribe(goc => this.goc = goc);
   }
 
+  // Update the record of the currently displayed grandmaster
   save(): void {
     this.gocService.update(this.goc)
       .then(() => this.goBack());
   }
 
+  // Go back to the previous view
   goBack(): void {
     this.location.back();
   }
 
+  // display a placeholder image if the picture of the selected grandamster is not available
   noImage(): void {
     if(this.goc.image !== this.placeHolder) {
       this.goc.image = this.placeHolder;

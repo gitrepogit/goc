@@ -9,6 +9,7 @@ import { GocService }         from './goc.service';
   templateUrl: './gocs.component.html',
   styleUrls: [ './gocs.component.css' ]
 })
+
 export class GocsComponent implements OnInit {
   gocs: Goc[];
   selectedGoc: Goc;
@@ -17,13 +18,13 @@ export class GocsComponent implements OnInit {
     private gocService: GocService,
     private router: Router) { }
 
-  getGocs(): void {
+  getGocs(): void { //get an array of grandmasters
     this.gocService
         .getGocs()
         .then(gocs => this.gocs = gocs);
   }
 
-  add(name: string, rating: string): void {
+  add(name: string, rating: string): void { //add a grandmaster
     name = name.trim();
     rating = rating.trim();
     if(!rating) { return; }
@@ -36,7 +37,7 @@ export class GocsComponent implements OnInit {
       });
   }
 
-  delete(goc: Goc): void {
+  delete(goc: Goc): void { // delete a grandmaster
     this.gocService
         .delete(goc.id)
         .then(() => {
@@ -49,11 +50,11 @@ export class GocsComponent implements OnInit {
     this.getGocs();
   }
 
-  onSelect(goc: Goc): void {
+  onSelect(goc: Goc): void { //mark the currently selected gransmaster
     this.selectedGoc = goc;
   }
 
-  gotoDetails(): void {
+  gotoDetails(): void { //open the details view of the currently selelcted gransmaster 
     this.router.navigate(['/details', this.selectedGoc.id]);
   }
 }

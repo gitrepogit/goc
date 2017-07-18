@@ -8,6 +8,8 @@ import { GocService } from '../gocs/goc.service';
   templateUrl: './home.component.html',
   styleUrls: [ './home.component.css' ]
 })
+
+// Home page
 export class HomeComponent implements OnInit {
   gocs: Goc[] = [];
 

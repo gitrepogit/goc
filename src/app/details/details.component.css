@@ -28,20 +28,24 @@ button:disabled {
   cursor: auto;
 }
 
+/* Image of grandmaster displayed on the details view */
 #goc-detail-image {
   float: left;
 }
 
+/* Information of the grandmaster displayed on the details view */
 #goc-detail-info {
   float: left;
   padding-left: 1em;
 }
 
+/* Labels in the details view info column */
 #goc-detail-info label{
   display: inline-block;
   width: 3.9em;
 }
 
+/* rows in the deails view info column */
 #goc-detail-info div {
   margin-bottom: 0.5em;
 }

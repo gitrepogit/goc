@@ -1,6 +1,14 @@
+
 #search-component {
   float:left;
-  margin-top: 10px;
+  position: relative;
+  width: 200px;
+  margin: 10px 5px 0 16px;
+
+}
+
+#result-container {
+  position:absolute;
 }
 
 .search-result{

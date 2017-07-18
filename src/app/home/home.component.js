@@ -28,7 +28,9 @@ HomeComponent = __decorate([
         selector: 'my-dashboard',
         templateUrl: './home.component.html',
         styleUrls: ['./home.component.css']
-    }),
+    })
+    // Home page
+    ,
     __metadata("design:paramtypes", [goc_service_1.GocService])
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;

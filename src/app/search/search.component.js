@@ -33,13 +33,13 @@ var SearchComponent = (function () {
     SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.gocs = this.searchTerms
-            .debounceTime(300) // wait 300ms after each keystroke before considering the term
-            .distinctUntilChanged() // ignore if next search term is same as previous
-            .switchMap(function (term) { return term // switch to new observable each time the term changes
+            .debounceTime(200) // wait time after each keystroke before sending it over to api
+            .distinctUntilChanged() // ignore of the search term is same as previous
+            .switchMap(function (term) { return term // switch to the new observable whenever search term changes
             ? _this.searchService.search(term)
             : Observable_1.Observable.of([]); })
             .catch(function (error) {
-            // TODO: add real error handling
+            // TODO: console.log to be removed
             console.log(error);
             return Observable_1.Observable.of([]);
         });
@@ -50,7 +50,9 @@ var SearchComponent = (function () {
         while (sr[0]) {
             sr[0].parentNode.removeChild(sr[0]);
         }
-        document.getElementById('search-box').value = '';
+        //Clear search input box
+        document.getElementById('search-box').value = ''; //HTMLElement type casted to HTMLInputElement
+        // Go to the details page of the selected grandmaster
         var link = ['/details', goc.id];
         this.router.navigate(link);
     };

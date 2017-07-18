@@ -21,6 +21,7 @@ import { Goc } from '../gocs/goc';
   styleUrls: [ './search.component.css' ],
   providers: [SearchService]
 })
+
 export class SearchComponent implements OnInit {
   gocs: Observable<Goc[]>;
   private searchTerms = new Subject<string>();
@@ -36,15 +37,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.gocs = this.searchTerms
-      .debounceTime(300)        // wait 300ms after each keystroke before considering the term
-      .distinctUntilChanged()   // ignore if next search term is same as previous
-      .switchMap(term => term   // switch to new observable each time the term changes
-        // return the http search observable
+      .debounceTime(200)        // wait time after each keystroke before sending it over to api
+      .distinctUntilChanged()   // ignore of the search term is same as previous
+      .switchMap(term => term   // switch to the new observable whenever search term changes
+        // return the observable from the http api
         ? this.searchService.search(term)
-        // or the observable of empty gocs if there was no search term
+        // or the observable of empty array if there was no search term
         : Observable.of<Goc[]>([]))
       .catch(error => {
-        // TODO: add real error handling
+        // TODO: console.log to be removed
         console.log(error);
         return Observable.of<Goc[]>([]);
       });
@@ -56,8 +57,11 @@ export class SearchComponent implements OnInit {
     while(sr[0]) {
         sr[0].parentNode.removeChild(sr[0]);
     }​
-    document.getElementById('search-box').value = '';
 
+    //Clear search input box
+    (<HTMLInputElement>document.getElementById('search-box')).value = ''; //HTMLElement type casted to HTMLInputElement
+
+    // Go to the details page of the selected grandmaster
     let link = ['/details', goc.id];
     this.router.navigate(link);
   }

@@ -14,6 +14,6 @@ export class SearchService {
   search(term: string): Observable<Goc[]> {
     return this.http
                .get(`api/gocs/?name=${term}`)
-               .map(response => response.json().data as Goc[]);
+               .map(response => response.json().data as Goc[]); //Interpret search results as json and extract data as a Goc array
   }
 }
