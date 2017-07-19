@@ -56,6 +56,18 @@ var SearchComponent = (function () {
         var link = ['/details', goc.id];
         this.router.navigate(link);
     };
+    //Clear search box and any search results
+    SearchComponent.prototype.clearSearch = function () {
+        //Clear search input box
+        document.getElementById('search-box').value = '';
+        //clear search results
+        var sr = document.getElementsByClassName('search-result');
+        while (sr[0]) {
+            sr[0].parentNode.removeChild(sr[0]);
+        }
+        //reset search
+        this.search(null);
+    };
     return SearchComponent;
 }());
 SearchComponent = __decorate([

@@ -65,4 +65,21 @@ export class SearchComponent implements OnInit {
     let link = ['/details', goc.id];
     this.router.navigate(link);
   }
+
+  //Clear search box and any search results
+  clearSearch(): void {
+    //Clear search input box
+    (<HTMLInputElement>document.getElementById('search-box')).value = '';
+
+    //clear search results
+    var sr = document.getElementsByClassName('search-result');
+    while(sr[0]) {
+        sr[0].parentNode.removeChild(sr[0]);
+    }​
+
+    //reset search
+    this.search(null);
+  }
+
+
 }
