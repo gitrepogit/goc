@@ -27,7 +27,7 @@ h4 {
   width: 25%;
 }
 .module {
-  padding: 20px;
+  padding: 5px 12px;
   text-align: center;
   color: #eee;
   max-height: 120px;
@@ -59,3 +59,85 @@ h4 {
     min-width: 60px;
   }
 }
+
+/* display top rated grandmasters */
+#h3-top-rated {
+  font-size: 1.8em;
+}
+
+#top-gocs {
+  clear: both;
+  display: table;
+  border-spacing: 10px;
+}
+
+
+.top-gocs-tabs {
+  width: 23%;
+  padding: 0;
+  margin: 1%;
+  text-align: center;
+  font-weight: bold;
+  height: 100%;
+  display: table-cell;
+}
+
+.top-gocs-tabs a {
+  display: inline-block;
+  margin: 0;
+  padding: 0.9em 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #8bb7e5;
+  background-color: #ddd;
+  color: #eee;
+  border: 1px solid #bbb;
+  color: #111;
+
+}
+
+.top-gocs-tabs a:hover {
+  background-color: #eee;
+  cursor: pointer;
+  color: #607d8b;
+  border-color: #ddd;
+}
+
+.top-gocs-tabs a:visited {
+  color: #000;
+}
+/* end display top rated grandmasters */
+
+/* display random pick */
+#h3-random-pick {
+  font-size: 1.8em;
+}
+
+/* Image of grandmaster displayed on the details view */
+#goc-detail-image {
+  float: left;
+  margin-top: 1em;
+  border: 1px solid #ddd;
+}
+
+/* Information of the grandmaster displayed on the details view */
+#goc-detail-info {
+  float: left;
+  padding-left: 1em;
+  margin-top: 1em;
+}
+
+/* Labels in the details view info column */
+#goc-detail-info label{
+  display: inline-block;
+  width: 3.9em;
+  font-weight: bold;
+}
+
+/* rows in the deails view info column */
+#goc-detail-info div {
+  margin-bottom: 0.5em;
+}
+
+/* end display random pick */

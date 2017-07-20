@@ -105,7 +105,14 @@ nav a.active {
   clear:both;
 }
 
+#app-loading {
+  display: inline-block;
+  padding: 20px;
+}
+
 #dummy {
    outline: 1px solid red;
    background-color: green;
 }
+
+

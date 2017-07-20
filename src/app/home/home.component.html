@@ -1,10 +1,23 @@
 <div id="content">
-	<h3>Top Grandmasters</h3>
-	<div class="grid grid-pad">
-	  <a *ngFor="let goc of gocs"  [routerLink]="['/details', goc.id]"  class="col-1-4">
-	    <div class="module goc">
-	      <h4>{{goc.name}}</h4>
-	    </div>
-	  </a>
+	<h3 id="h3-top-rated" *ngIf="gocs.length">Top Rated Grandmasters</h3>
+
+	<div id="top-gocs">
+		<div *ngFor="let goc of gocs" class="top-gocs-tabs">
+			<a [routerLink]="['/details', goc.id]" >
+				{{goc.name}}
+			</a>
+		</div>
 	</div>
+
+
+	<h3 id="h3-random-pick" *ngIf="gocs.length">Random Pick</h3>
+    <div id="goc-detail-image" *ngIf="gocs.length"><img src="{{randomGoc.image}}" width="300px" (error)="noImage(randomGoc)"></div>
+    <div id="goc-detail-info" *ngIf="gocs.length">
+      <div><label>ID: </label>{{randomGoc.id}}</div>
+      <div><label>Name: </label>{{randomGoc.name}}</div>
+      <div><label>Rating: </label>{{randomGoc.rating}}</div>
+    </div>
+    <div class="clear"></div>
+
+
 </div>
