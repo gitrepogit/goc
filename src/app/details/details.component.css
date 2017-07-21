@@ -31,6 +31,7 @@ button:disabled {
 /* Image of grandmaster displayed on the details view */
 #goc-detail-image {
   float: left;
+  width: 300px;
 }
 
 /* Information of the grandmaster displayed on the details view */

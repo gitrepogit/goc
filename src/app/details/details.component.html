@@ -4,10 +4,11 @@
     <div id="goc-detail-image"><img src="{{goc.image}}" width="300px" (error)="noImage()"></div>
 
     <div id="goc-detail-info">
-      <div><label>ID: </label>{{goc.id}}</div>
-      <div><label>Name: </label><input [(ngModel)]="goc.name" placeholder="name" /></div>
-      <div><label>Rating: </label><input [(ngModel)]="goc.rating" placeholder="rating" /></div>
-      <div><label>Image: </label><input [(ngModel)]="goc.image" placeholder="No Image" /></div>
+      <div><label>ID </label>{{goc.id}}</div>
+      <div><label>Name </label><input [(ngModel)]="goc.name" placeholder="name" /></div>
+      <div><label>Rating </label><input [(ngModel)]="goc.rating" placeholder="rating" /></div>
+      <div><label>Country </label><input [(ngModel)]="goc.country" placeholder="Country" /></div>
+      <div><label>Image </label><input [(ngModel)]="goc.image" placeholder="No Image" /></div>
       <button (click)="goBack()">Back</button>
       <button (click)="save()">Save</button>
     </div>
