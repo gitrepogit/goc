@@ -63,6 +63,9 @@ export class SearchComponent implements OnInit {
     //Clear search input box
     (<HTMLInputElement>document.getElementById('search-box')).value = ''; //HTMLElement type casted to HTMLInputElement
 
+    //reset search
+    this.search(null);
+
     // Go to the details page of the selected grandmaster
     let link = ['/details', goc.id];
     this.router.navigate(link);

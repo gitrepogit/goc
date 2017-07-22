@@ -55,6 +55,8 @@ var SearchComponent = (function () {
         }
         //Clear search input box
         document.getElementById('search-box').value = ''; //HTMLElement type casted to HTMLInputElement
+        //reset search
+        this.search(null);
         // Go to the details page of the selected grandmaster
         var link = ['/details', goc.id];
         this.router.navigate(link);
