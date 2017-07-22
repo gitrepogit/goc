@@ -1,12 +1,12 @@
 /* Main Styles */
 h1 {
   color: #369;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, "Trebuchet MS", sans-serif;
   font-size: 250%;
 }
 h2, h3 {
   color: #444;
-  font-family: Garamond, Helvetica, Arial, sans-serif;
+  font-family: Garamond, Helvetica, "Trebuchet MS", sans-serif;
   font-weight: lighter;
 }
 body {
@@ -15,28 +15,27 @@ body {
   text-align: center;
 }
 body, input[text], button {
-  color: #888;
+  color: #777;
   font-family: "Trebuchet MS", Cambria, Georgia;
 }
-a {
+a, button {
   cursor: pointer;
   cursor: hand;
 }
 button {
   font-family: Helvetica;
-  background-color: #eee;
+  background-color: #eeeeee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
 }
 button:hover {
   background-color: #cfd8dc;
 }
+
 button:disabled {
-  background-color: #eee;
-  color: #aaa;
+  background-color: #eeeeee;
+  color: #aaaaaa;
   cursor: auto;
 }
 

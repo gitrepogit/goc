@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Core imports
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var Observable_1 = require("rxjs/Observable");
@@ -19,14 +20,15 @@ require("rxjs/add/observable/of");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/debounceTime");
 require("rxjs/add/operator/distinctUntilChanged");
+// Import other components
 var search_service_1 = require("./search.service");
 var SearchComponent = (function () {
     function SearchComponent(searchService, router) {
         this.searchService = searchService;
         this.router = router;
-        this.searchTerms = new Subject_1.Subject();
+        this.searchTerms = new Subject_1.Subject(); //holds the search terms
     }
-    // Push a search term into the observable stream.
+    // add new terms to the observable's stream
     SearchComponent.prototype.search = function (term) {
         this.searchTerms.next(term);
     };
@@ -43,7 +45,8 @@ var SearchComponent = (function () {
             console.log(error);
             return Observable_1.Observable.of([]);
         });
-    };
+    }; //end ngOnInit()
+    // Go to the details view of the selcted grandmaster
     SearchComponent.prototype.gotoDetail = function (goc) {
         //clean up search results
         var sr = document.getElementsByClassName('search-result');
@@ -55,7 +58,7 @@ var SearchComponent = (function () {
         // Go to the details page of the selected grandmaster
         var link = ['/details', goc.id];
         this.router.navigate(link);
-    };
+    }; //end gotoDetail
     //Clear search box and any search results
     SearchComponent.prototype.clearSearch = function () {
         //Clear search input box
@@ -67,7 +70,7 @@ var SearchComponent = (function () {
         }
         //reset search
         this.search(null);
-    };
+    }; //end clearSearch()
     return SearchComponent;
 }());
 SearchComponent = __decorate([
@@ -77,8 +80,7 @@ SearchComponent = __decorate([
         styleUrls: ['./search.component.css'],
         providers: [search_service_1.SearchService]
     }),
-    __metadata("design:paramtypes", [search_service_1.SearchService,
-        router_1.Router])
+    __metadata("design:paramtypes", [search_service_1.SearchService, router_1.Router])
 ], SearchComponent);
 exports.SearchComponent = SearchComponent;
 //# sourceMappingURL=search.component.js.map

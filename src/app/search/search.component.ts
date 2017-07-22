@@ -1,3 +1,4 @@
+// Core imports
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
@@ -12,8 +13,9 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { SearchService } from './search.service';
-import { Goc } from '../gocs/goc';
+// Import other components
+import { SearchService }     from './search.service';
+import { Goc }               from '../gocs/goc';
 
 @Component({
   selector: 'goc-search',
@@ -22,20 +24,19 @@ import { Goc } from '../gocs/goc';
   providers: [SearchService]
 })
 
+
 export class SearchComponent implements OnInit {
-  gocs: Observable<Goc[]>;
-  private searchTerms = new Subject<string>();
+  gocs: Observable<Goc[]>; //holds the observable returned from search service
+  private searchTerms = new Subject<string>(); //holds the search terms
 
-  constructor(
-    private searchService: SearchService,
-    private router: Router) {}
+  constructor( private searchService: SearchService, private router: Router) {}
 
-  // Push a search term into the observable stream.
+  // add new terms to the observable's stream
   search(term: string): void {
     this.searchTerms.next(term);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //Run this on iniliatization
     this.gocs = this.searchTerms
       .debounceTime(200)        // wait time after each keystroke before sending it over to api
       .distinctUntilChanged()   // ignore of the search term is same as previous
@@ -49,8 +50,9 @@ export class SearchComponent implements OnInit {
         console.log(error);
         return Observable.of<Goc[]>([]);
       });
-  }
+  } //end ngOnInit()
 
+  // Go to the details view of the selcted grandmaster
   gotoDetail(goc: Goc): void {
     //clean up search results
     var sr = document.getElementsByClassName('search-result');
@@ -64,7 +66,8 @@ export class SearchComponent implements OnInit {
     // Go to the details page of the selected grandmaster
     let link = ['/details', goc.id];
     this.router.navigate(link);
-  }
+  } //end gotoDetail
+
 
   //Clear search box and any search results
   clearSearch(): void {
@@ -79,7 +82,7 @@ export class SearchComponent implements OnInit {
 
     //reset search
     this.search(null);
-  }
+  } //end clearSearch()
 
 
 }

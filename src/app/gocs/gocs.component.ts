@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router';
+// Core imports
+import { Component, OnInit }   from '@angular/core';
+import { Router }              from '@angular/router';
 
-import { Goc }                from './goc';
-import { GocService }         from './goc.service';
+// Imports of other components
+import { Goc }                 from './goc';
+import { GocService }          from './goc.service';
 
+// Component decoration
 @Component({
   selector: 'my-gocs',
   templateUrl: './gocs.component.html',
@@ -11,12 +14,10 @@ import { GocService }         from './goc.service';
 })
 
 export class GocsComponent implements OnInit {
-  gocs: Goc[];
-  selectedGoc: Goc;
+  gocs: Goc[]; //to hold the array of grandmasters
+  selectedGoc: Goc; //to hold the currently selected grandmaster
 
-  constructor(
-    private gocService: GocService,
-    private router: Router) { }
+  constructor( private gocService: GocService, private router: Router) { }
 
   getGocs(): void { //get an array of grandmasters
     this.gocService
@@ -46,7 +47,7 @@ export class GocsComponent implements OnInit {
         });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //run on initialization
     this.getGocs();
   }
 

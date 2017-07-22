@@ -6,8 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//Core Imports
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+// Other components imported
 var home_component_1 = require("./home/home.component");
 var gocs_component_1 = require("./gocs/gocs.component");
 var details_component_1 = require("./details/details.component");
@@ -15,7 +17,7 @@ var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'details/:id', component: details_component_1.DetailsComponent },
-    { path: 'gocs', component: gocs_component_1.GocsComponent }
+    { path: 'gocs', component: gocs_component_1.GocsComponent } //display a list of grandmasters
 ];
 var AppRouterModule = (function () {
     function AppRouterModule() {

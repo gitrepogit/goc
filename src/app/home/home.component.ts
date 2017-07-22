@@ -1,10 +1,13 @@
+// Core Imports
 import { Component, OnInit } from '@angular/core';
 
+// Import Other components
 import { Goc }        from '../gocs/goc';
 import { GocService } from '../gocs/goc.service';
 
+//Component decoration
 @Component({
-  selector: 'my-dashboard',
+  selector: 'my-home',
   templateUrl: './home.component.html',
   styleUrls: [ './home.component.css' ]
 })
@@ -18,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private gocService: GocService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { // Run on initialization
     this.gocService.getGocs()
       .then(gocs => {
               this.gocs = (gocs.sort((item1, item2) => { //Sort the list of grandmasters, highest to lowest rank

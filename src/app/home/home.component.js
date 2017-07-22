@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Core Imports
 var core_1 = require("@angular/core");
 var goc_service_1 = require("../gocs/goc.service");
+//Component decoration
 var HomeComponent = (function () {
     function HomeComponent(gocService) {
         this.gocService = gocService;
@@ -44,7 +46,7 @@ var HomeComponent = (function () {
 }());
 HomeComponent = __decorate([
     core_1.Component({
-        selector: 'my-dashboard',
+        selector: 'my-home',
         templateUrl: './home.component.html',
         styleUrls: ['./home.component.css']
     })

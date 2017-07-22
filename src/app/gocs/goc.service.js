@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Core imports
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
@@ -16,7 +17,7 @@ require("rxjs/add/operator/toPromise");
 var GocService = (function () {
     function GocService(http) {
         this.http = http;
-        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' }); //to identify the http request as a json payload
         this.gocsUrl = 'api/gocs'; // URL to web api
     }
     //Fetch an array of grandmasters
@@ -25,7 +26,7 @@ var GocService = (function () {
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
-    };
+    }; //end getGocs
     // Fetch a single grandmaster based on the ID
     GocService.prototype.getGoc = function (id) {
         var url = this.gocsUrl + "/" + id;
@@ -33,7 +34,7 @@ var GocService = (function () {
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
-    };
+    }; //end getGoc
     // Delete a single grandmaster identified by ID
     GocService.prototype.delete = function (id) {
         var url = this.gocsUrl + "/" + id;
@@ -41,7 +42,7 @@ var GocService = (function () {
             .toPromise()
             .then(function () { return null; })
             .catch(this.handleError);
-    };
+    }; // end delete
     // Add an entry for a new Grandmaster
     GocService.prototype.create = function (name, rating, country, image) {
         return this.http
@@ -49,7 +50,7 @@ var GocService = (function () {
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
-    };
+    }; // end create
     // Update the record of an existing grandmaster
     GocService.prototype.update = function (goc) {
         var url = this.gocsUrl + "/" + goc.id;
@@ -58,12 +59,12 @@ var GocService = (function () {
             .toPromise()
             .then(function () { return goc; })
             .catch(this.handleError);
-    };
+    }; //end update
     // Handle errors encournterd during http operations to the api
     GocService.prototype.handleError = function (error) {
-        console.error('An error occurred', error); // to be removed
+        console.error('An error occurred', error); // 
         return Promise.reject(error.message || error);
-    };
+    }; //end handleError
     return GocService;
 }());
 GocService = __decorate([

@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Core imports
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
@@ -14,12 +15,14 @@ var app_router_module_1 = require("./app-router.module");
 // Imports for loading & configuring the in-memory web api
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
 var sim_data_service_1 = require("./data/sim-data.service");
+// Import other components
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var gocs_component_1 = require("./gocs/gocs.component");
 var details_component_1 = require("./details/details.component");
 var goc_service_1 = require("./gocs/goc.service");
 var search_component_1 = require("./search/search.component");
+// Class decorations
 var AppModule = (function () {
     function AppModule() {
     }

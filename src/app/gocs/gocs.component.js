@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Core imports
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var goc_service_1 = require("./goc.service");
+// Component decoration
 var GocsComponent = (function () {
     function GocsComponent(gocService, router) {
         this.gocService = gocService;
@@ -68,8 +70,7 @@ GocsComponent = __decorate([
         templateUrl: './gocs.component.html',
         styleUrls: ['./gocs.component.css']
     }),
-    __metadata("design:paramtypes", [goc_service_1.GocService,
-        router_1.Router])
+    __metadata("design:paramtypes", [goc_service_1.GocService, router_1.Router])
 ], GocsComponent);
 exports.GocsComponent = GocsComponent;
 //# sourceMappingURL=gocs.component.js.map

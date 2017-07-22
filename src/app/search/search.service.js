@@ -10,12 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/http"); //Needed for making queries to http api
 require("rxjs/add/operator/map");
 var SearchService = (function () {
     function SearchService(http) {
         this.http = http;
     }
+    //Query an http api with the supplied search term and return results as an Observable
     SearchService.prototype.search = function (term) {
         return this.http
             .get("api/gocs/?name=" + term)
