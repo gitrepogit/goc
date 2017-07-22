@@ -23,7 +23,9 @@
       <h2>Add Grandmaster</h2>
       <div class="form-row"><label class="form-label">Name:</label> <input #gocName /></div>
       <div class="form-row"><label class="form-label">Rating:</label> <input #gocRating /></div>
-      <button (click)="add(gocName.value, gocRating.value); gocName.value=''; gocRating.value=''">
+      <div class="form-row"><label class="form-label">Country:</label> <input #gocCountry /></div>
+      <div class="form-row"><label class="form-label">Image:</label> <input #gocImage /></div>
+      <button (click)="add(gocName.value, gocRating.value, gocCountry.value, gocImage.value); gocName.value=''; gocRating.value=''; gocCountry.value=''; gocImage.value='';">
         Save
       </button>
     </div>

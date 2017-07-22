@@ -23,7 +23,7 @@ var GocsComponent = (function () {
             .getGocs()
             .then(function (gocs) { return _this.gocs = gocs; });
     };
-    GocsComponent.prototype.add = function (name, rating) {
+    GocsComponent.prototype.add = function (name, rating, country, image) {
         var _this = this;
         name = name.trim();
         rating = rating.trim();
@@ -34,7 +34,7 @@ var GocsComponent = (function () {
         if (!name || !rating || isNaN(ratingN)) {
             return;
         }
-        this.gocService.create(name, ratingN)
+        this.gocService.create(name, ratingN, country, image)
             .then(function (goc) {
             _this.gocs.push(goc);
             _this.selectedGoc = null;

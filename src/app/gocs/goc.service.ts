@@ -41,9 +41,9 @@ export class GocService {
   }
 
   // Add an entry for a new Grandmaster
-  create(name: string, rating:number): Promise<Goc> {
+  create(name: string, rating: number, country: string, image: string): Promise<Goc> {
     return this.http
-      .post(this.gocsUrl, JSON.stringify({name: name, rating: rating}), {headers: this.headers})
+      .post(this.gocsUrl, JSON.stringify({name: name, rating: rating, country: country, image: image}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Goc)
       .catch(this.handleError);

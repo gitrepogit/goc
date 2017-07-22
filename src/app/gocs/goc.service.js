@@ -43,9 +43,9 @@ var GocService = (function () {
             .catch(this.handleError);
     };
     // Add an entry for a new Grandmaster
-    GocService.prototype.create = function (name, rating) {
+    GocService.prototype.create = function (name, rating, country, image) {
         return this.http
-            .post(this.gocsUrl, JSON.stringify({ name: name, rating: rating }), { headers: this.headers })
+            .post(this.gocsUrl, JSON.stringify({ name: name, rating: rating, country: country, image: image }), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
